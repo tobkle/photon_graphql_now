@@ -1,0 +1,27 @@
+{
+	"version": 2,
+	"name": "prisma",
+	"builds": [
+		{
+			"src": "www/**/*",
+			"use": "@now/static"
+		},
+		{
+			"src": "api/**/*.js",
+			"use": "@now/node@canary",
+			"config": {
+				"includeFiles": [],
+				"maxLambdaSize": "25mb"
+			}
+		}
+	],
+	"routes": [ { "src": "/", "dest": "www/index.html" } ],
+	"env": {
+		"MYSQL_CLOUD_URL": "@mysql_cloud_url"
+	},
+	"build": {
+		"env": {
+			"MYSQL_CLOUD_URL": "@mysql_cloud_url"
+		}
+	}
+}
